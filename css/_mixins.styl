@@ -1,0 +1,196 @@
+book()
+	font-family: fonte_texto
+bold()
+	font-family: fonte_primaria
+amatic()
+	font-family: fonte_secundaria
+iron()
+	font-family: fonte_terciaria
+.book
+	book()
+.bold
+	bold()
+.amatic
+	amatic()
+.iron
+	iron()
+vendor(prop, args)
+	-webkit-{prop} args
+	//-moz-{prop} args
+	-ms-{prop} args
+	{prop} args
+pos(pos = relative, t = auto, r = auto, b = auto, l = auto)
+	position: pos
+	top:      t
+	right:    r
+	bottom:   b
+	left:     l
+transition(arguments..., isMultiple = false)
+	if(isMultiple)
+		vendor(transition, arguments)
+	else
+		vendor(transition, arguments)
+bdr(radius = 50%) 
+	vendor(border-radius, radius)
+bdres(topright = 0, bottomright = 0, bottomleft = 0, topleft = 0) 
+	-webkit-border-top-right-radius:    topright
+	-webkit-border-bottom-right-radius: bottomright
+	-webkit-border-bottom-left-radius:  bottomleft
+	-webkit-border-top-left-radius:     topleft
+	-moz-border-radius-topright:        topright
+	-moz-border-radius-bottomright:     bottomright
+	-moz-border-radius-bottomleft:      bottomleft
+	-moz-border-radius-topleft:         topleft
+	border-top-right-radius:            topright
+	border-bottom-right-radius:         bottomright
+	border-bottom-left-radius:          bottomleft
+	border-top-left-radius:             topleft
+transform()
+	vendor(transform, arguments)
+box-shadow() 
+	vendor(box-shadow, arguments)
+text-shadow()
+	vendor(text-shadow, arguments)
+opac(opac = 50)
+	-ms-filter:     'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + (opac * 100) + ')'
+	-moz-opacity:   opac
+	-khtml-opacity: opac
+	opacity:        opac
+filterblur(val = 3px)
+	vendor(filter, blur(val))
+filtergrayscale(val = 100%) 
+	vendor(filter, grayscale(val))
+	filter: url("data:image/svg+xml;utf8,&lt;svg xmlns=\'http://www.w3.org/2000/svg\'&gt;&lt;filter id=\'grayscale\'&gt;&lt;feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale");
+	filter: gray;
+	filter: grayscale(val);
+	-webkit-filter: grayscale(val);
+display-flex(alignItems = center, justifyContent = center, flow = initial)
+	display: -webkit-box
+	display: -moz-box
+	display: -webkit-flex
+	display: -ms-flexbox
+	display: flex
+	vendor(align-items, alignItems)
+	vendor(justify-content, justifyContent)
+	vendor(flex-flow, flow)
+gradient(startColor = cor_primaria, endColor = cor_secundaria) 
+	background-color: startColor
+	background: -webkit-gradient(linear, left top, left bottom, from(startColor), to(endColor))
+	background: -webkit-linear-gradient(top, startColor, endColor)
+	background: -moz-linear-gradient(top, startColor, endColor)
+	background: -ms-linear-gradient(top, startColor, endColor)
+	background: -o-linear-gradient(top, startColor, endColor)
+h-gradient(startColor = cor_primaria, endColor = cor_secundaria) 
+	//background-color: startColor
+	background-image: -webkit-gradient(linear, left top, right top, from(startColor), to(endColor))
+	background-image: -webkit-linear-gradient(left, startColor, endColor)
+	background-image: -moz-linear-gradient(left, startColor, endColor)
+	background-image: -ms-linear-gradient(left, startColor, endColor)
+	background-image: -o-linear-gradient(left, startColor, endColor)
+background-linear-gradient(startPoint, startColor, startInterval, endColor, endInterval, deprecatedWebkitStartPoint = false, deprecatedWebkitEndPoint = false)
+	background-color startColor
+	if deprecatedWebkitStartPoint && deprecatedWebkitEndPoint
+		background-image -webkit-gradient(linear, deprecatedWebkitStartPoint, deprecatedWebkitEndPoint, color-stop(startInterval, startColor), color-stop(endInterval, endColor))
+	background-image -webkit-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+	background-image -moz-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+	background-image -ms-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+	background-image -o-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+	background-image linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+gradient-principal(cor1 = cor_secundaria, cor2 = cor_terciaria)
+	background-linear-gradient(135deg, cor1, 0%, cor2, 100%, left top, left bottom)	
+inblock(va = middle)
+	display: inline-block
+	vertical-align: va
+bg(name, ext = 'jpg', size = cover, options = no-repeat center center)
+	background:      url('../images/'+ name + "." + ext) options
+	background-size: size
+img-centro()
+	display block
+	max-width 100%
+	margin-left auto
+	margin-right auto
+abs-centro(distance = 0)
+	absolute top distance right distance bottom distance left distance
+	margin auto
+clearfix()
+	if arguments == 'none'
+		&:before
+		&:after
+			display none
+	else
+		zoom: 1
+		&:before
+		&:after
+			content: ""
+			display: table
+		&:after
+			clear: both
+size()
+	if length(arguments) == 1
+		width: arguments[0]
+		height: arguments[0]
+	else
+		width: arguments[0]
+		height: arguments[1]
+-pos(type, args)
+	i = 0
+	position: unquote(type)
+	for j in (1..4)
+		if length(args) > i
+			{args[i]}: args[i + 1] is a 'unit' ? args[i += 1] : 0
+		i += 1
+	if args == '0'
+		top 0
+		right 0
+		bottom 0
+		left 0
+fixed()
+	-pos('fixed', arguments)
+absolute()
+	-pos('absolute', arguments)
+relative()
+	-pos('relative', arguments)
+flexgrid(cols, margin = 15px)
+	wid = (100% / cols)
+	calc-margin = ((margin * cols) - margin) / cols
+	&:after
+		content: ''
+		flex: auto
+	> *
+		width: 'calc(%s - %s)' % (wid calc-margin)
+		margin: 0 (margin / 2)
+		&:nth-child(1)
+			margin-left: 0
+		&:nth-child({cols}n)
+			margin-right: 0
+		&:nth-child({cols}n + 1)
+			margin-left: 0
+		&:nth-child(n + {cols + 1})
+			margin-top: margin
+			
+			
+keyframify(animationName)
+	@keyframes {animationName} 
+		{block}
+animate(name, duration = initial, easing = ease, iteration = infinite, playState = running) 
+	vendor(animation, name duration easing iteration playState)
+	
+/*+keyframify(spin)
+	0%
+		transform(rotate(0))
+	100%
+		transform(rotate(360deg))
+spin(time = 1.5s)
+	animate(spin, time, linear, infinite, running)
+
++keyframify(shine)
+	100%
+		left: 125%*/
+		
++keyframify(animaBg)
+	0%
+		background-position left 0 bottom
+	100%
+		background-position left -202px bottom
+animaBg()
+	animate(animaBg, 10s, linear)

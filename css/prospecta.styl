@@ -1,0 +1,1474 @@
+@import _variables
+@import _mixins
+*
+	margin: 0px
+	padding: 0px
+	list-style: none
+	text-decoration: none
+	outline: none !important
+body 
+	color: cor_texto
+	font-size: fonte_tamanho
+	font-family: fonte_texto
+	overflow-x: hidden
+	book()
+	bg(bg-body, jpg, auto, repeat)
+p
+	line-height 1.5
+label
+a 
+	color: inherit
+	transition(all .3s ease)
+	word-wrap: break-word
+	cursor pointer
+	&:hover
+		text-decoration: none !important
+		color: cor_primaria
+	&:focus
+		text-decoration: none !important
+		color: cor_texto
+label
+ul
+h1
+h2
+h3
+	font-weight: normal
+	margin: 0
+strong
+	bold()
+.form
+	margin-left -15px
+	margin-right -15px
+	clearfix()
+	div[class*='col-']
+		padding 15px
+.floating-placeholder
+	height: 40px
+	padding: 0
+	width: 100%
+	position: relative
+	margin: 0 auto
+	inblock()
+	transition(all .5s ease)
+	color: inherit
+	input, textarea, select 
+		width: 100%
+		height: 40px
+		font-size: 13px
+		line-height: 40px
+		border 0
+		outline: none !important
+		box-shadow none !important
+		top: 0
+		left: 0
+		bottom: 0
+		right: 0
+		display: block
+		background: transparent
+		z-index: 2
+		text-indent: 13px
+		color: inherit
+		transition(all 0s ease-out)
+		background-image: -webkit-gradient(linear, left top, left bottom, from(cor_primaria), to(cor_primaria)), -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ccc))
+		background-image: -webkit-linear-gradient(cor_primaria, cor_primaria), -webkit-linear-gradient(#ccc, #ccc)
+		background-image: -o-linear-gradient(cor_primaria, cor_primaria), -o-linear-gradient(#ccc, #ccc)
+		background-image: linear-gradient(cor_primaria, cor_primaria), linear-gradient(#ccc, #ccc)
+		-webkit-background-size: 0 2px, 100% 2px
+		background-size: 0 2px, 100% 2px
+		background-repeat: no-repeat
+		background-position: center bottom, center 100%
+		background-position: center bottom, center 100%
+		background-color: rgba(0, 0, 0, 0)
+		&:focus
+			-webkit-background-size: 100% 2px, 100% 2px
+			background-size: 100% 2px, 100% 2px
+			vendor(transition-duration, 0.3s)
+			& + label
+				color cor_primaria
+	option
+		color: cor_texto
+	textarea
+		font-size: 14px
+		position: relative
+		height: 70px
+		line-height: normal
+		max-height: 150px
+		padding-top: 10px
+		padding-left: 10px
+		text-indent: 0
+		resize: vertical !important
+	label 
+		display: block
+		position: absolute
+		top: 0
+		left: 12px
+		font-size: fonte_tamanho
+		line-height: 40px
+		z-index: 1
+		pointer-events: none
+		transition transform 200ms, color 200ms
+		vendor(transform-origin, 0 0em)
+		transform(scale(1, 1) rotateY(0))
+		color: inherit
+	&.textarea
+		height: auto
+	&.floating-placeholder-float
+		label
+			top: -29px
+			transform(scale(0.85, 0.85) rotateY(0))
+	.branco &
+		color: #fff
+		label
+			color: #fff
+		input, select, textarea
+			background-image: -webkit-gradient(linear, left top, left bottom, from(cor_terciaria), to(cor_terciaria)), -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff))
+			background-image: -webkit-linear-gradient(cor_terciaria, cor_terciaria), -webkit-linear-gradient(#fff, #fff)
+			background-image: -o-linear-gradient(cor_terciaria, cor_terciaria), -o-linear-gradient(#fff, #fff)
+			background-image: linear-gradient(cor_terciaria, cor_terciaria), linear-gradient(#fff, #fff)
+			&:focus + label
+				color cor_terciaria
+	input[type="file"]::-webkit-file-upload-button
+		display none
+		visibility: hidden
+	.mostrar-senha
+		position: absolute
+		z-index: 3
+		right: 15px
+		bottom: 0
+		line-height: 40px
+		cursor: pointer
+*::-moz-selection 
+	background: rgba(cor_primaria, .75)
+	color: #FFF
+*::selection 
+	background: rgba(cor_primaria, .75)
+	color: #FFF
+.sem-padding
+	padding: 0 !important
+.visible-xxs
+	display: none
+.branco
+	color: #FFF !important
+	a
+		color #fff
+	a:hover
+		color cor_terciaria
+.italic
+	font-style italic
+.f-left
+	float: left
+.f-right
+	float: right
+.display-block
+	display block
+.row-flex
+.display-flex
+	display-flex()
+	clearfix(none)
+.flex-list
+	display-flex(flex-start, flex-start, row wrap)
+.flex-stretch
+	vendor(align-items, stretch)
+.flex-end
+	vendor(align-items, flex-end)
+.flex-reverse
+	vendor(flex-direction, row-reverse)
+.flex-column
+	vendor(flex-direction, column)
+.flex-nowrap
+	vendor(flex-wrap, nowrap)
+.flex-start
+	vendor(justify-content, flex-start)
+.flex-space-between
+	vendor(justify-content, space-between)
+.flex-space-around
+	vendor(justify-content, space-around)
+.inblock
+	inblock()
+.img-centro
+	img-centro()
+.bdr
+	bdr(5px)
+	overflow hidden
+	z-index 1
+.bdr50
+	bdr(50%)
+	overflow hidden
+	z-index 1
+.ovh
+	overflow hidden
+.wow
+	visibility: hidden
+.wow-v
+	visibility: visible !important
+.rel
+	min-height: 0
+	position: relative
+.ml30
+	margin-left 30px
+.mb30
+	margin-bottom 30px
+.mb5
+	margin-bottom 5px
+.mb10
+	margin-bottom 10px
+.p15
+	padding 15px
+	padding-bottom 15px
+.p30
+	padding-top 30px
+	padding-bottom 30px
+.p80
+	padding-top 80px
+	padding-bottom 80px
+.pt80
+	padding-top 80px
+.pb80
+	padding-bottom 80px
+.p120
+	padding-top 120px
+	padding-bottom 120px
+.p160
+	padding-top 160px
+	padding-bottom 160px
+.p0
+	padding 0
+.pb0
+	padding-bottom 0 !important
+.pt0
+	padding-top 0
+.uppercase
+	text-transform uppercase
+.fz0
+	font-size 0
+.fz14
+	font-size 14px
+.fz18
+	font-size 18px
+.fz24
+	font-size 24px
+.fz30
+	font-size 30px
+.fz36
+	font-size 36px
+.fz48
+	font-size 48px
+.fz60
+	font-size 60px
+// for n in (5)
+// 	.flex-grid-{n}
+// 		display-flex(flex-start, flex-start, row wrap)
+// 		flexgrid(n)
+fa =
+	display: inline-block
+	font: normal normal normal 14px/1 FontAwesome
+	font-size: inherit
+	text-rendering: auto
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+themify =
+	font-family: 'themify'
+	speak: none
+	font-style: normal
+	font-weight: normal
+	font-variant: normal
+	text-transform: none
+	line-height: 1
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+.cor-primaria
+	color: cor_primaria
+.cor-secundaria
+	color: cor_secundaria
+.cor-terciaria
+	color: cor_terciaria
+.bg-primaria
+	background cor_primaria
+.bg-secundaria
+	background cor_secundaria
+.bg-terciaria
+	background cor_terciaria
+.slick-dots
+	absolute bottom -30px
+	display: block
+	width: 100%
+	margin 0
+	text-align: center
+	slickDotsSize = 12px
+	li
+		position: relative
+		display: inline-block
+		width: slickDotsSize
+		height: slickDotsSize
+		margin: 0 5px
+		padding: 0
+		cursor: pointer
+		button
+			display: block
+			width: 100%
+			height: 100%
+			font-size 0
+			border 0
+			outline: none
+			background cor_secundaria
+			//border 3px solid cor_secundaria
+			bdr(100%)
+			transition(all 0.4s)
+			-webkit-appearance none
+			appearance none
+			&:hover
+				background: darken(cor_primaria, 15)
+		&.slick-active button
+			background: cor_primaria
+		.dots-branco &
+			button
+				background #fff
+				//border-color #fff
+			&:hover button
+				background: lighten(cor_primaria, 25)
+				//background: rgba(255, 255, 255, .5)
+			&.slick-active button
+				background: cor_primaria
+	.dots-relative &
+		position relative
+		bottom 0
+		padding 30px 0 0
+#totop
+.slick-prev
+.slick-next
+	slickArrowsSize = 50px
+	slickArrowPadding = 25px
+	slickArrowBorder = 2px
+	slickArrowColor = cor_secundaria
+	slickBorderRadius = true
+	z-index: 1
+	width slickArrowsSize
+	height slickArrowsSize
+	absolute top bottom left //(- slickArrowsSize - 15px)
+	display: block
+	cursor: pointer
+	line-height: 1
+	font-size 0
+	text-align: center
+	color: transparent
+	padding: 0
+	margin: auto
+	border: none
+	outline: none
+	background: none
+	&:before
+		{themify}
+		content: '\e64a'
+		font-size: slickArrowsSize - slickArrowPadding
+		line-height slickArrowsSize - (slickArrowBorder * 2)
+		background: none
+		if slickBorderRadius
+			bdr(50%)
+		color: slickArrowColor
+		border slickArrowBorder solid slickArrowColor
+		transition all .3s
+		display: block
+	&:hover:before
+		background-color: rgba(slickArrowColor, .25)
+	&:active:before
+		border-color: slickArrowColor
+		background-color: slickArrowColor
+		color: #fff
+		transition all .1s
+	.seta-branca &
+		&:before
+			border-color #fff
+			color: #fff
+		&:hover:before
+			background-color: rgba(#fff, .5)
+		&:active:before
+			border-color #fff
+			background-color #fff
+			color cor_texto
+.slick-next
+	right 0
+	left auto
+	&:before
+		content: '\e649'
+.seta-fora
+	@media (min-width: 1280px)
+		.slick-prev
+			transform translateX(-150%)
+		.slick-next
+			transform translateX(150%)
+.slick-slide
+	transition opacity 1s linear
+	&:not(.slick-active)
+		opacity 0 !important
+.fancybox-opened .fancybox-skin
+	box-shadow none !important
+.fancybox-wrap
+	max-width calc(100% - 76px)
+.fancybox-inner
+	max-width 100%
+.fancybox-overlay
+	background rgba(#000, .85) !important
+.fancybox-close
+	right -36px !important
+	top 0 !important
+	background-color cor_primaria
+	&:hover
+		background-color cor_terciaria
+.interna .interna-texto ul:not(.striped-list)
+.check-list
+	margin 20px 0
+	li
+		display block
+		margin 10px 0
+		text-indent -28px
+		padding-left 27px
+		line-height 1.5
+		&:before
+			{themify}
+			display initial
+			content '\e64c'
+			color: cor_primaria
+			font-size 24px
+			margin-right 10px
+			position relative
+			top 4px
+.striped-list
+	display: block
+	width: 100%
+	text-align: left
+	margin-bottom: 20px
+	// max-height: 150px
+	// overflow: hidden
+	li
+		float left
+		width: 50%
+		padding 5px
+		border: 1px solid cor_primaria
+		span
+			max-width: calc(100% - 60px)
+			white-space: nowrap
+			overflow: hidden
+			text-overflow: ellipsis
+			inblock()
+		&:after
+			content: attr(data-qtd)
+			inblock(middle)
+			float: right
+		@media (min-width: 767px)
+			&:first-child
+				-webkit-border-top-left-radius: 5px
+				-moz-border-radius-topleft: 5px
+				border-top-left-radius: 5px
+			&:first-child:last-child
+				-webkit-border-top-right-radius: 5px
+				-moz-border-radius-topright: 5px
+				border-top-right-radius: 5px
+			&:nth-child(2)
+				-webkit-border-top-right-radius: 5px
+				-moz-border-radius-topright: 5px
+				border-top-right-radius: 5px
+			&:last-child
+			&:nth-last-child(2):nth-child(even)
+				-webkit-border-bottom-right-radius: 5px
+				-moz-border-radius-bottomright: 5px
+				border-bottom-right-radius: 5px
+			&:last-child:nth-child(odd)
+				width: calc(50% + 1px)
+			&:last-child:nth-child(odd)
+			&:nth-last-child(2):nth-child(odd)
+				-webkit-border-bottom-left-radius: 5px
+				-moz-border-radius-bottomleft: 5px
+				border-bottom-left-radius: 5px
+			&:nth-child(odd):not(:last-child)
+				border-right-color transparent !important
+			&:nth-child(n + 3)
+				border-top-color transparent !important
+		@media (max-width: 767px)
+			width 100%
+			+ li
+				border-top 0
+			&:first-child
+				bdres(5px, 0, 0, 5px)
+			&:last-child
+				bdres(0, 5px, 5px, 0)
+.slash-list
+	font-size 0
+	li
+		font-size fonte_tamanho
+		position relative
+		padding 0 5px
+		inblock(middle)
+		& + li:before
+			content '/'
+			inblock(bottom)
+			margin-right 10px
+.titulo-principal
+	position relative
+	display block
+	z-index 1
+	margin 30px 0
+	iron()
+	text-transform uppercase
+	font-size 60px
+	color cor_primaria
+	word-wrap break-word
+	small
+		amatic()
+		color cor_texto
+		font-size 30px
+		display block
+		margin-bottom 5px
+		text-transform none
+	&:first-child
+		margin-top 0
+	&:last-child
+		margin-bottom 0
+	&.detalhe
+		inblock()
+		color cor_primaria !important
+		span
+			inblock()
+			transform scale(0)
+			transition all 1s easingElastic
+			position relative
+			&:before
+			&:after
+				content ''
+				absolute top right 50% bottom
+				display block
+				margin auto
+				size 98px 48px
+				pointer-events none
+				bg(detalhe-titulo, png, 100% auto, no-repeat center)
+				opac(0)
+				transform scale(0)
+				transition all 1s easingElastic .5s
+			&:after
+				right auto
+				left 50%
+		&.ativo
+			span
+				opac(1)
+				transform scale(1)
+				&:before
+				&:after
+					opac(1)
+					right calc(100% + 15px)
+					transform scale(1)
+				&:after
+					left calc(100% + 15px)
+					transform scale(-1, 1)
+	.branco &
+		color #fff
+		small
+			color #fff
+	& + .botao-principal
+		margin-top 0
+.botao-principal
+	z-index 1
+	inblock(middle)
+	bold()
+	padding 12px 30px
+	margin 30px auto
+	border 2px solid cor_secundaria
+	background: transparent
+	color: cor_secundaria
+	font-size 12px
+	text-align center
+	text-transform: uppercase
+	cursor pointer
+	transition all 0.3s
+	bdr(50px)
+	&:hover
+		border-color cor_primaria
+		background cor_primaria
+		color #fff
+	&:first-child
+		margin-top 0
+	&:last-child
+		margin-bottom 0
+	& + .botao-principal
+		margin-top 0
+		margin-left 15px
+	@media (min-width: 992px)
+		&.ml30
+			margin-left 30px
+			margin-top 0
+	.branco &
+		border-color #fff
+		color #fff
+		&:hover
+			background-color #fff
+			color cor_texto
+.square-icon
+	size 50px
+	line-height 47px
+	text-align center
+	background transparent
+	color cor_secundaria
+	border 2px solid cor_secundaria
+	font-size 24px
+	margin-right 10px
+	vertical-align middle
+	&.fa-envelope
+		line-height 45px
+	.branco &
+		color #fff
+		border-color #fff
+.icon-item
+	span
+		position relative
+		line-height 1
+		inblock()
+		& + span
+			margin-left 5px
+	img
+		transition all .3s
+	img[src*='hover']
+		absolute left top bottom
+		margin auto
+		opac(0)
+icon-item-hover()
+	.icon-item
+		img
+			opac(0)
+		img[src*='hover']
+			opac(1)
+#loader-wrapper
+	position: fixed
+	background: cor_secundaria
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 999999
+	transition all 0.5s 0.5s ease-out
+	#loader
+		display: block
+		position: relative
+		left: 50%
+		top: 50%
+		width: 150px
+		height: 150px
+		margin: -75px 0 0 -75px
+		bdr(50%)
+		border: 3px solid transparent
+		border-top-color: cor_primaria
+		//spin(2s)
+		transition all 0.5s ease-out
+		&:before
+			content: ""
+			position: absolute
+			top: 5px
+			left: 5px
+			right: 5px
+			bottom: 5px
+			bdr(50%)
+			border: 3px solid transparent
+			border-top-color: darken(cor_primaria, 10)
+			//spin(3s)
+		&:after
+			content: ""
+			position: absolute
+			top: 15px
+			left: 15px
+			right: 15px
+			bottom: 15px
+			bdr(50%)
+			border: 3px solid transparent
+			border-top-color: lighten(cor_primaria, 10)
+			//spin(1.5s)
+	.loaded &
+		visibility hidden
+		opac(0.3)
+		transform translateY(-100%)
+		.loaded
+			opac(0)
+.nav-tabs
+	text-align center
+	font-size 0
+	//border-bottom 1px solid cor_primaria
+	border 0
+	margin-bottom 50px
+	> li
+		float none
+		inblock()
+	> li > a
+		font-size 28px
+		amatic()
+		background-color transparent !important
+		text-transform uppercase
+		color #fff
+		margin 0
+		padding 15px 30px
+		border 0 !important
+	> li:hover
+	> li.active
+		icon-item-hover()
+		> a
+			color cor_terciaria
+	> li.active > a
+		color cor_terciaria !important
+		bg(detalhe-cardapio, png, auto, repeat-x center bottom)
+		animaBg()
+.tab-content
+	[class*="col-"]
+		padding 0
+wLogo = 184px
+hLogo = 72px
+pLogo = 10px
+hTopo = hLogo + (pLogo * 2)
+#topo
+	fixed top left
+	width 100%
+	z-index 100
+	background rgba(cor_primaria, .8)
+	transition all .3s ease-out
+	height: hTopo - diminuir = 0
+	.logo
+		max-width: calc(100% - 70px)
+		width: wLogo
+		height: hTopo
+		margin: diminuir 0 0
+		padding pLogo 0
+		display: block
+		position: relative
+		z-index 3
+		transition all 0.3s ease-out
+		img
+			abs-centro()
+			right auto
+			max-width: 100%
+			max-height: 100% //unquote('calc(100% - '+ pLogo*2 +')')
+			transition all 0.3s ease-out
+	.top-nav
+		font-size 0
+		li
+			display inline-block
+			position relative
+		li.active
+		li:hover
+			icon-item-hover()
+			a
+				background-color #fff
+				color #000
+		a
+			display block
+			font-size 24px
+			amatic()
+			color #fff
+			text-transform uppercase
+			//line-height: hTopo
+			padding 31px 18px
+			margin 0
+			&:first-child > a
+				margin-left 0
+			&:last-child > a
+				margin-right 0
+	&.topo-fixo
+		box-shadow 0 0 15px 0 rgba(0, 0, 0, .15)
+#banner
+	position: relative
+	z-index: 1
+	width: 100%
+	height 1000px
+	min-height 600px
+	max-height 100vh
+	background #000
+	&:hover > a
+		vendor(flex, 25% 1 1)
+	> a
+		position relative
+		overflow hidden
+		display-flex()
+		vendor(flex, 33.333% 1 1)
+		height 100%
+		transition all 0.3s ease
+		& + a
+			border-left 5px solid #fff
+		&:hover
+			vendor(flex, 50% 1 1)
+			img
+				opac(.5)
+			.legenda-banner
+				opac(1)
+				transform translate(-50%, -50%) scale(1)
+				transition all .7s easingElastic
+	img
+		absolute top 50% left 50%
+		margin auto
+		transform translate(-50%, -50%)
+		transition all 1s
+	.legenda-banner
+		max-width 75%
+		max-height 60%
+		max-height calc(100% - 250px)
+		opac(0)
+		transform translate(-50%, -50%) scale(0)
+		transition all .3s easingElastic
+	.seta-banner
+		absolute right bottom 30px left
+		margin auto
+		border 0
+		size 50px 53px
+		line-height 53px
+		text-align center
+		font-size 24px
+		bg(seta-banner, png)
+#cardapio
+	bg(bg-cardapio)
+#promocoes
+	.lista-promo > a
+		margin 0
+		padding 7.5px
+		width 25%
+		float left
+		&:nth-child(5n + 1)
+			width 50%
+		&:nth-child(10n + 1)
+			float right
+#newsletter
+	position relative
+	z-index 3
+	form
+		position relative
+	input
+		padding-right 65px
+	button
+		absolute right
+		border 0
+		background-color transparent
+		height 40px
+		line-height 40px
+		padding 0 15px
+		transition all .3s
+		&:hover
+			color cor_terciaria
+#unidades
+	#busca-unidades
+		position relative
+		input
+			padding-right 75px
+		button
+			absolute top right
+			border 0
+			background-color transparent
+			height 40px
+			line-height 40px
+			padding 0 15px
+			transition all .3s
+			&:hover
+				color cor_primaria
+	.item-unidades
+		strong:first-child
+			margin-top 0
+		i
+			margin-right 5px
+		.col-md-7
+			padding-left 30px
+		& + .item-unidades
+			padding-top 60px
+			margin-top 60px
+			border-top 1px solid #c7c7c7
+#rodape
+	position relative
+	z-index 3
+	overflow hidden
+	bg(bg-rodape)
+	.fa-stack
+		color #000
+		.fa-inverse
+			transition all .3s
+		&:hover
+			color #fcba2c
+			.fa-inverse
+				color #000
+#totop
+	z-index 9
+	relative top right bottom left
+	inblock()
+	margin 0
+	opac(0)
+	visibility hidden
+	transform rotate(90deg)
+	transition all .3s, top 0s
+	&:active
+		bottom 15px
+	&.ativo
+		opac(1)
+		visibility: visible
+.item
+	position relative
+	inblock()
+	overflow hidden
+	text-align center
+	img
+		transform scale(1)
+		transition all 1s
+	&:before
+		content attr(title)
+		font-size 18px
+		bold()
+		text-transform uppercase
+		text-shadow 3px 3px 3px rgba(0, 0, 0, .7)
+		absolute top 50% left 50%
+		z-index 1
+		color #fff
+		opac(1)
+		vendor backface-visibility visible
+		transform translate(-50%, -50%) scale(1)
+		transition all .5s easingElastic
+	> span
+		abs-centro(15px)
+		padding 15px
+		color #FFF
+		background rgba(cor_primaria, .85)
+		transform scale(0)
+		opac(0)
+		transition all .5s easingElastic
+	&:hover
+		img
+			transform scale(1.3)
+			filterblur(3px)
+		&:before
+			opac(0)
+			transform translate(-50%, -50%) scale(0)
+		> span
+			opac(1)
+			transform scale(1)
+.home
+	.slick-slide:not(.slick-active)
+		opacity 1 !important
+	#franqueado
+		bg(bg-franqueado)
+		padding-left 15px
+		padding-right 15px
+	#cardapio
+		position relative
+		> img
+			position absolute !important
+			top 0
+			left auto !important
+			margin auto
+			z-index 1
+			pointer-events none
+		.img-cardapio-1
+			width 12%
+			top -2% !important
+			right 0
+		.img-cardapio-2
+			width 10%
+			top 6% !important
+			left 3% !important
+		.img-cardapio-3
+			width 8.5%
+			top 25% !important
+			left 0 !important
+		.img-cardapio-4
+			width 10%
+			top 55% !important
+			left 2% !important
+		.img-cardapio-5
+			width 7%
+			top auto !important
+			bottom 60%
+			right 1%
+		.img-cardapio-6
+			width 33%
+			top auto !important
+			right 0
+			bottom 0
+		.img-cardapio-7
+			width 14%
+			top 80% !important
+			left 0 !important
+	#unidades
+		position relative
+		&:before
+			content ''
+			abs-centro()
+			bottom auto
+			height 0
+			bg(pegadas, png, auto, no-repeat right top)
+			transition all 3s ease
+			pointer-events none
+		&.ativo:before
+			height 100%
+.interna
+	.fundo-interna
+		position relative
+		width 100%
+		overflow hidden
+		padding 180px 15px 80px
+		background cor_texto
+		bg(fundo-interna)
+		display-flex(center, center, column nowrap)
+		&:before
+			content ''
+			abs-centro()
+			background rgba(0, 0, 0, .6)
+		h2
+			position relative
+			display: block
+			z-index 3
+			amatic()
+			font-size 80px
+			text-align center
+			color: #fff
+			word-break break-word
+		.breadcrumb
+			z-index 2
+			margin 10px 0 0
+			color: cor_terciaria
+			padding 12px
+			background transparent
+			border 0
+			bdr(0)
+			font-size 14px
+			bold()
+			a
+				cursor pointer
+				color #fff
+				&:after
+					content: '/'
+					margin-left 5px
+					margin-right 3px
+					pointer-events none
+					color: #fff
+				&:hover
+					color: cor_terciaria
+			span
+				bold()
+	.flex-list > div
+		padding-top 15px
+		padding-bottom 15px
+	#cardapio
+		.nav-tabs
+			z-index 2
+			position relative
+			left 0
+			width 100% !important
+			transition all .3s
+			margin-bottom 0
+			padding 0 0 20px
+		.is-sticky .nav-tabs
+			bg(bg-cardapio)
+		.interna-texto b
+		.interna-texto strong
+		.interna-texto ul li:before
+		.titulo-principal
+			color cor_terciaria
+	main
+		padding 80px 0
+		.titulo-principal
+			font-size 40px
+	.interna-texto
+		b
+		strong
+			bold()
+			display: block
+			margin-top 15px
+			margin-bottom 5px
+			color: cor_primaria
+		ul:not(.striped-list)
+			margin 0
+			li:before
+				font-size 18px
+				top 2px
+	.slick-detalhe-grande
+		float right
+		max-width: calc(100% - 100px)
+		width 400px
+	.slick-detalhe-thumb
+		float left
+		width 100px
+		.slick-track, .slick-list
+			height 400px !important
+		a
+			display block
+			opac(.5)
+			border 1px solid cor_secundaria
+		.slick-active.slick-center a
+			border-color cor_primaria
+			opac(1)
+		.slick-slide
+			border 0
+			padding 5px
+[class^='popup-']
+	fixed top right bottom left
+	height 100%
+	max-height 100%
+	z-index -99
+	overflow hidden
+	opac(0)
+	transition(all .5s)
+	.close-popup
+		abs-centro()
+		z-index -1
+		opac(.9)
+		background rgba(cor_secundaria, .9)
+	[class^='ti-']
+		font-size 72px
+		color: #fff
+		cursor pointer
+		fixed top 30px right 30px
+		z-index 1
+		transition(all 0.3s)
+		transform(rotate(0))
+		&:hover
+			transform(rotate(90deg))
+	.content
+		position relative
+		max-height calc(100% - 60px)
+		overflow-y scroll
+		background: #fff
+		padding 45px
+		box-shadow 0 10px 25px rgba(0, 0, 0, 0.2)
+		bdr(5px)
+		opac(0)
+		transition(all .5s ease 0.5s)
+		form div[class*='col-']
+			padding 12px
+		.display-flex > div + div
+			margin-left 30px
+		&::-webkit-scrollbar
+			width 6px
+			background transparent
+		&::-webkit-scrollbar-thumb
+			width 6px
+			background: cor_primaria
+	.hr-outtr-line
+		margin 0 auto 30px
+		max-width 350px
+		display block
+		i
+			font-size: 18px
+			padding: 10px
+			vertical-align: super
+			color: cor_primaria
+		hr
+			padding: 0 0 0 0
+			margin: 10px 0
+			display: inline-block
+			width: 100%
+			max-width: calc(50% - 25px)			
+			height: 1px
+			background: #ccc
+			border: 0
+	input:checked + &
+		z-index 9999
+		opac(1)
+		.content
+			opac(1)
+@media (max-width: 1200px)
+	#topo
+		.container
+			width 100%
+@media (max-width: 992px)
+	.text-center-sm
+		text-align: center
+	.block-sm
+		display: block !important
+	.column-sm
+		vendor(flex-direction, column)
+	.w100p-sm
+		width 100%
+	.p160
+		padding-top 120px
+		padding-bottom 120px
+	.icon-item
+		display block
+		text-align center
+		i
+			margin-right 0
+		.fa-fw + div
+			max-width: 100%
+		& + .icon-item
+			margin-left 0
+			margin-top 15px
+	#topo
+		.toggle-menu
+			position relative
+			z-index 99
+			height 50px
+			width 50px
+			line-height 50px
+			text-align center
+			background transparent
+			color #fff
+			cursor: pointer
+			border 2px solid #fff
+			bdr(50%)
+			span
+				absolute right 100%
+				text-transform uppercase
+				padding-right 10px
+			button
+				abs-centro()
+				top 1px
+				width: 25px
+				height: 1px
+				border: none
+				background: #fff
+				color: inherit
+				font-size: 0
+				transition background .35s
+				pointer-events none
+				&:before
+				&:after
+					content: ""
+					position: absolute
+					top: 0
+					left: 50%
+					display: block
+					width: 100%
+					height: 100%
+					background: #fff
+					transition: top .35s .35s, transform 0.35s, background .35s
+					transform: translateX(-50%)
+					transform-origin: 50% 0%
+				&:before
+					top -8px
+				&:after
+					top 8px
+			&:hover
+				background #fff
+				border-color: #fff
+				button
+				button:before
+				button:after
+					background cor_primaria
+		.top-nav
+			fixed top right bottom left
+			z-index -1
+			padding-top 92px
+			background cor_primaria
+			word-wrap break-word
+			display-flex(flex-end, center, column nowrap)
+			opac(0)
+			visibility hidden
+			transition all 0.3s ease-out
+			a
+				position relative
+				display block
+				line-height normal
+				color #fff !important
+				font-size 42px
+				padding 12px 0
+				margin 0 60px 0 0
+				border 0
+				height auto
+				overflow hidden
+				text-align right
+				text-transform uppercase
+				word-wrap break-word
+				opac(0)
+				transform translateX(-60px)
+				transition all .5s
+			li:hover
+				.icon-item
+					background-color transparent
+					img
+						opac(1)
+					img[src*='hover']
+						opac(0)
+		#toggle-nav:checked ~ &
+			.top-nav
+				opac(1)
+				visibility visible
+				a
+					opac(1)
+					transform translateX(0)
+				for n in (1..10)
+					li:nth-child({n}) a
+						vendor(transition-delay, unit(.3 + (n * .2),'s'))
+			.toggle-menu
+				background #fff
+				border-color: #fff
+				button
+					background-color transparent
+					&:before
+						top 0
+						transform: translateX(-50%) rotate(45deg)
+						background cor_primaria
+						transition: top .35s, transform 0.35s .35s
+					&:after
+						top 0
+						transform: translateX(-50%) rotate(-45deg)
+						background cor_primaria
+						transition: top .35s, transform 0.35s .35s
+	#banner
+		> a
+			&:nth-child(3)
+				display none
+			img
+				opac(.5)
+			.legenda-banner
+				opac(1)
+				transform translate(-50%, -50%) scale(1)
+				transition all .7s easingElastic
+	.home
+		.slick-prev
+			left 0
+		.slick-next
+			right 0
+	.interna
+		main
+			text-align center
+		.interna-texto
+			text-align center
+			& + div
+				margin-top 80px
+@media (max-width: 992px) and (min-width: 768px)
+	#topo .top-nav a
+		display-flex(center, center, row-reverse nowrap)
+		span + span
+			margin-left 0
+			margin-right 10px
+@media (max-width: 768px)
+	.fz18
+		font-size 16px
+	.fz24
+		font-size 18px
+	.fz36
+	.fz30
+	.fz48
+		font-size 24px
+	.p120
+	.p160
+		padding-top 80px
+		padding-bottom 80px
+	.mb30
+		margin-bottom 15px
+	.text-center-xs
+		text-align: center
+	.block-xs
+		display block !important
+	.column-xs
+		-webkit-flex-direction: column
+		-ms-flex-direction: column
+		flex-direction: column
+	.slick-1item
+		padding-bottom 30px
+	.slick-dots
+		relative bottom
+		margin-top 15px
+	.titulo-principal
+		font-size 36px
+		small
+			font-size 24px
+		&.detalhe
+			span:before
+			span:after
+				width 70px
+	.botao-principal
+		padding-left 20px
+		padding-right 20px
+	#topo
+		.top-nav
+			vendor align-items center
+			a
+				font-size 48px
+				margin 0
+				text-align center
+	#banner
+		height 100vh
+		max-height 500px
+		min-height 400px
+		> a
+			&:nth-child(2)
+				display none
+	#promocoes .lista-promo > a
+		width 50%
+		padding 5px
+	#newsletter
+		span
+			padding 0
+		form
+			max-width 400px
+			margin auto
+	#rodape
+		.fz24
+			font-size 24px
+	.nav-tabs
+		margin-left -15px
+		margin-right -15px
+		> li
+			width 33.333%
+			text-align center
+			> a
+				padding-left 10px
+				padding-right 10px
+				font-size 22px
+				span
+					display block
+					img
+						right 0
+					& + span
+						margin 10px auto 0
+	.home
+		.slick-slide
+			padding 0
+		#promocoes .lista-promo > a
+			&:nth-child(1)
+				padding-right 0
+			&:nth-child(2)
+				padding-left 0
+			&:nth-child(n + 3)
+				display none
+		.tab-content .tab-pane > div
+			&:nth-child(n + 3)
+				display none
+		#unidades:before
+			display none
+	.interna
+		.fundo-interna
+			h2
+				font-size 36px
+				font-size 13vw
+			.breadcrumb
+				absolute bottom
+				width 100%
+				text-align center
+				font-size 12px
+		main .titulo-principal
+			font-size 32px
+		#cardapio
+			.sticky-wrapper:not(.is-sticky) .nav-tabs
+				width auto !important
+			.sticky-wrapper
+				margin-left -15px
+				margin-right -15px
+			.nav-tabs
+				margin-left 0
+				margin-right 0
+		#unidades .titulo-principal.detalhe span
+			opac(1)
+			transform scale(1)
+			&:before
+			&:after
+				opac(1)
+				right calc(100% + 15px)
+				transform scale(1)
+			&:after
+				left calc(100% + 15px)
+				transform scale(-1, 1)
+@media (max-width: 480px)
+	.visible-xxs
+		display block
+	.fancybox-skin
+	.fancybox-outer
+	.fancybox-inner
+	.fancybox-wrap
+		left 0 !important
+		width auto !important
+		height auto !important
+		max-width 100%
+	.fancybox-close
+		top -36px !important
+		right 0 !important
+@media (max-width: 992px) and (max-height: 800px)
+	#topo .top-nav a
+		padding 10px 0
+		font-size 40px
+		font-size: 6vh

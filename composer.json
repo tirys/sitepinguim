@@ -1,0 +1,14 @@
+{
+    "name": "agenciaprospecta/hybrid",
+    "authors": [
+        {
+            "name": "Igor Soares",
+            "email": "igor.larcs@hotmail.com"
+        }
+    ],
+    "require": {
+        "hassankhan/config": "0.8.*",
+        "phpmailer/phpmailer": "^5.2",
+        "codeguy/upload": "^1.3"
+    }
+}

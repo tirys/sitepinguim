@@ -1,0 +1,55 @@
+.book {
+  font-family: fonte_texto;
+}
+.bold {
+  font-family: fonte_primaria;
+}
+.amatic {
+  font-family: fonte_secundaria;
+}
+.iron {
+  font-family: fonte_terciaria;
+}
+/*+keyframify(spin)
+	0%
+		transform(rotate(0))
+	100%
+		transform(rotate(360deg))
+spin(time = 1.5s)
+	animate(spin, time, linear, infinite, running)
+
++keyframify(shine)
+	100%
+		left: 125%*/
+@-moz-keyframes animaBg {
+  0% {
+    background-position: left 0 bottom;
+  }
+  100% {
+    background-position: left -202px bottom;
+  }
+}
+@-webkit-keyframes animaBg {
+  0% {
+    background-position: left 0 bottom;
+  }
+  100% {
+    background-position: left -202px bottom;
+  }
+}
+@-o-keyframes animaBg {
+  0% {
+    background-position: left 0 bottom;
+  }
+  100% {
+    background-position: left -202px bottom;
+  }
+}
+@keyframes animaBg {
+  0% {
+    background-position: left 0 bottom;
+  }
+  100% {
+    background-position: left -202px bottom;
+  }
+}
