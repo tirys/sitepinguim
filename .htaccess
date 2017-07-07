@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+			ErrorDocument 404 http://localhost/lepingue/erros/404.php
+			  RewriteEngine On
+
+				#força www
+				RewriteCond %{HTTP_HOST} !^$
+				RewriteCond %{HTTP_HOST} ^([^.]+)\.([a-z]{2,4})$ [NC]
+				RewriteCond %{HTTPS}s ^on(s)|
+				RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+				#tira .php
+				RewriteCond %{REQUEST_FILENAME} !-f
+				RewriteCond %{REQUEST_FILENAME}\.php -f
+		        RewriteRule ^(.*)$ $1.php?codshow=$1
+				RewriteRule ^cardapio/([_0-9a-z-]+)?$									cardapio-detalhe.php?link_automatico=$1
+</IfModule>
