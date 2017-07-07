@@ -146,6 +146,7 @@
 		RewriteRule ^usuarios-tipos/([a-z0-9-]+)/([a-z0-9-]+)/?$									usuarios-tipos.php?acao=$1&id=$2
 		RewriteRule ^unidades/([a-z0-9-]+)/?$														unidades.php?acao=$1
 		RewriteRule ^unidades/([a-z0-9-]+)/([a-z0-9-]+)/?$											unidades.php?acao=$1&id=$2
+    RewriteRule ^cardapio-unidade/([a-z0-9-]+)/?$                         unidade-cardapio.php?id=$1
 		
 		Options -Indexes
 		RewriteCond $1 !\.(gif|jpe?g|png|ico|css|js|php)$ 

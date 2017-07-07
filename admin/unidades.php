@@ -215,11 +215,11 @@ if (isset($_GET['acao'])){
     <tr>
       <td><?php echo $dados['tb_unidade_nome'];?></td>
       <td><?php echo $dados['tb_unidade_login'];?></td>
-      <td>
-        <a href="unidades/resgatar-dados/<?php echo $dados['tb_unidade_id'];?>" title="Editar" class="btn btn-primary btn-xs"><span class="fa fa-pencil"></span></a></td>
-			<td><a href="unidades/excluir/<?php echo $dados['tb_unidade_id'];?>" title="Excluir" class="btn btn-danger btn-xs"><span class="fa fa-times"></span></a></td>
-		  <td>&nbsp;</td>
-      </tr>
+      <td><a href="unidades/resgatar-dados/<?php echo $dados['tb_unidade_id'];?>" title="Editar" class="btn btn-primary btn-xs"><span class="fa fa-pencil"></span></a></td>
+      <td><a href="cardapio-unidade/<?php echo $dados['tb_unidade_id'];?>" title="Editar Cardapio" class="btn btn-success btn-xs"><span class="fa fa-pencil"></span></a></td>
+	  <td><a href="unidades/excluir/<?php echo $dados['tb_unidade_id'];?>" title="Excluir" class="btn btn-danger btn-xs"><span class="fa fa-times"></span></a></td>
+	  <td>&nbsp;</td>
+    </tr>
     <?php } $conexao->desconectar();	?>
         
 	
