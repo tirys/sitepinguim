@@ -37,9 +37,9 @@ return [
         'path' => 'lepingue/admin/'
     ],
     'database' => [
-        'host' 	    => 'localhost',
-        'name'	    => 'lepingue',
-        'username'  => 'root',
-        'password'  => ''
+        'host' 	    => 'mysql.agenciaprospecta.com.br',
+        'name'	    => 'agenciaprospec82',
+        'username'  => 'agenciaprospec82',
+        'password'  => 'pro20172017'
     ]
 ];
