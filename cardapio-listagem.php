@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+require_once 'vendor/bundler.php';
+$url = new UrlParser();
+$url->outputMeta($data);
+
+$conexao = new Conexao();
+
+?>
 <html lang="pt-br">
 	<head>
     	<?php include_once("inc_head.php"); ?>
@@ -6,11 +14,11 @@
 	<body class="interna listagem">
 
 		<?php include('inc_topo.php'); ?>
-		
+
 		<section class="fundo-interna">
 			<h2>Cardápio</h2>
 			<nav class="breadcrumb">
-				<a href="index.php">Home</a>
+				<a href="<?=URL_INSTALACAO?>" title="Home">Home</a>
 				<span>Cardápio</span>
 			</nav>
 		</section>
@@ -18,37 +26,43 @@
 		<main id="cardapio">
 			<section class="container">
 				<ul class="nav nav-tabs" role="tablist">
-					<li role="presentation" class="active">
-						<a href="#burgers" aria-controls="burgers" role="tab" data-toggle="tab" class="icon-item">
+					<?php
+						$categorias = $conexao::fetch("SELECT * FROM tb_conteudo_categoria WHERE tb_conteudo_categoria_id_tipo = 6");
+						foreach ($categorias as $key => $categoria) {
+							if($key==0)
+								echo '<li role="presentation" class="active">';
+							else
+								echo '<li role="presentation">';
+					?>
+						<a href="#<?=$categoria['tb_conteudo_categoria_url']?>" aria-controls="<?=$categoria['tb_conteudo_categoria_url']?>" role="tab" data-toggle="tab" class="icon-item">
 		                    <span>
-		                        <img src="images/icone-burgers.png" alt="Burgers" title="Burgers">
-		                        <img src="images/icone-burgers-hover.png" alt="Burgers" title="Burgers">
+		                        <img src="images/icone-<?=$categoria['tb_conteudo_categoria_url']?>.png" alt="<?=$categoria['tb_conteudo_categoria_nome']?>" title="<?=$categoria['tb_conteudo_categoria_nome']?>">
+		                        <img src="images/icone-<?=$categoria['tb_conteudo_categoria_url']?>-hover.png" alt="<?=$categoria['tb_conteudo_categoria_nome']?>" title="<?=$categoria['tb_conteudo_categoria_nome']?>">
 		                    </span>
-		                    <span>Burgers</span>
+		                    <span><?=$categoria['tb_conteudo_categoria_nome']?></span>
                     	</a>
-                	</li>
-					<li role="presentation">
-						<a href="#bebidas" aria-controls="bebidas" role="tab" data-toggle="tab" class="icon-item">
-		                    <span>
-		                        <img src="images/icone-bebidas.png" alt="Bebidas" title="Bebidas">
-		                        <img src="images/icone-bebidas-hover.png" alt="Bebidas" title="Bebidas">
-		                    </span>
-		                    <span>Bebidas</span>
-                    	</a>
-                    </li>
-					<li role="presentation">
-						<a href="#sobremesas" aria-controls="sobremesas" role="tab" data-toggle="tab" class="icon-item">
-		                    <span>
-		                        <img src="images/icone-sobremesas.png" alt="Sobremesas" title="Sobremesas">
-		                        <img src="images/icone-sobremesas-hover.png" alt="Sobremesas" title="Sobremesas">
-		                    </span>
-		                    <span>Sobremesas</span>
-                    	</a>
-                    </li>
+          	</li>
+					<?php } ?>
+
 				</ul>
-				<br><br>	
+				<br><br>
 				<div class="tab-content row">
-					<div role="tabpanel" class="tab-pane fade in active" id="burgers">
+					<?php
+						foreach ($categorias as $key => $categoria) {
+							if($key==0)
+								echo "<div role='tabpanel' class='tab-pane fade in active' id='{$categoria['tb_conteudo_categoria_url']}'>";
+							else
+								echo "<div role='tabpanel' class='tab-pane fade' id='{$categoria['tb_conteudo_categoria_url']}'>";
+
+							$iterator->loadBlock('prato_bloco.html')
+								->addFilter('urlfyLink',array('cardapio-detalhe','cardapio',1,'tb_conteudo_link_automatico'),'tb_conteudo_link_automatico')
+								->addFilter('urlfyImg',array('tb_conteudo_imagem_pequena','conteudo'),'tb_conteudo_imagem_pequena')
+								->iterate($conexao::fetch('SELECT tc.* FROM tb_conteudo tc WHERE tc.tb_conteudo_categoria='.$categoria['tb_conteudo_categoria_id']));
+
+							echo '</div>';
+						}
+					?>
+					<!-- <div role="tabpanel" class="tab-pane fade in active" id="burgers">
 						<div class="col-md-4 col-sm-6">
 							<a href="cardapio-detalhe.php" class="item" title="Salmão">
 								<img src="images/cardapio.jpg" alt="Salmão" title="Salmão" class="img-centro">
@@ -242,7 +256,7 @@
 								</span>
 							</a>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</section>
 		</main>

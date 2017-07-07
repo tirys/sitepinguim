@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<?php
+require_once 'vendor/bundler.php';
+$url = new UrlParser();
+
+$conexao = new Conexao();
+
+$tituloPage = "Quem Somos";
+$quemSomos = $conexao::fetchuniq("SELECT * FROM tb_conteudo WHERE tb_conteudo_id=6");
+
+$seo = $conexao::fetchuniq("SELECT * FROM tb_seo WHERE tb_seo_id=1");
+$url->outputMetaporTabela($seo,$data);
+?>
 <html lang="pt-br">
 	<head>
     	<?php include_once("inc_head.php"); ?>
@@ -6,12 +18,12 @@
 	<body class="interna">
 
 		<?php include('inc_topo.php'); ?>
-		
+
 		<section class="fundo-interna">
-			<h2>A Le Pingue</h2>
+			<h2><?=$quemSomos['tb_conteudo_texto_curto']?></h2>
 			<nav class="breadcrumb">
-				<a href="index.php">Home</a>
-				<span>A Le Pingue</span>
+				<a href="<?=URL_INSTALACAO?>" title="Home">Home</a>
+				<span><?=$quemSomos['tb_conteudo_texto_curto']?></span>
 			</nav>
 		</section>
 
@@ -19,53 +31,28 @@
 			<section class="container">
 				<div class="row">
 					<div class="col-md-6 col-md-push-6 interna-texto">
-						<h3 class="titulo-principal"><small>A Le Pingue</small>Conheça Nossa História</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores deleniti quasi ex nam distinctio autem, <b>accusantium</b> illum consectetur. Accusantium, facere? Ipsum praesentium, ad neque earum in explicabo aliquam! Dolor, voluptates? ipsum dolor sit amet, consectetur adipisicing elit. Repellendus cum esse, possimus dolorum neque perferendis cupiditate, nemo cumque, reiciendis animi tempore eaque qui deleniti enim quos unde autem eius veritatis.</p>
-						<strong>Valores</strong>
-						<ul>
-							<li>Lorem ipsum</li>
-							<li>Dolor sit</li>
-							<li>Amet consectetur</li>
-						</ul>
+						<h3 class="titulo-principal"><small><?=$quemSomos['tb_conteudo_texto_curto']?></small>Conheça Nossa História</h3>
+							<?=outputLongText($quemSomos['tb_conteudo_texto_longo'])?>
 					</div>
 					<div class="col-md-6 col-md-pull-6">
 						<h3 class="titulo-principal"><small>Confira Nossa</small>estrutura</h3>
 		                <div class="slick-1item">
-							<div>
-								<div class="embed-responsive embed-responsive-16by9">
-									<iframe width="560" height="315" src="https://www.youtube.com/embed/RzUPDekoR4U" frameborder="0" allowfullscreen></iframe>
-								</div>
-							</div>
-		                    <div>
-		                        <a href="images/img-interna.jpg" class="fancybox" rel="gallery">
-		                            <img src="images/img-interna.jpg" alt="Nome do Produto" title="Nome do Produto">
-		                        </a>
-		                    </div>
-		                    <div>
-		                        <a href="images/img-interna.jpg" class="fancybox" rel="gallery">
-		                            <img src="images/img-interna.jpg" alt="Nome do Produto" title="Nome do Produto">
-		                        </a>
-		                    </div>
-		                    <div>
-		                        <a href="images/img-interna.jpg" class="fancybox" rel="gallery">
-		                            <img src="images/img-interna.jpg" alt="Nome do Produto" title="Nome do Produto">
-		                        </a>
-		                    </div>
-		                    <div>
-		                        <a href="images/img-interna.jpg" class="fancybox" rel="gallery">
-		                            <img src="images/img-interna.jpg" alt="Nome do Produto" title="Nome do Produto">
-		                        </a>
-		                    </div>
-		                    <div>
-		                        <a href="images/img-interna.jpg" class="fancybox" rel="gallery">
-		                            <img src="images/img-interna.jpg" alt="Nome do Produto" title="Nome do Produto">
-		                        </a>
-		                    </div>
-		                    <div>
-		                        <a href="images/img-interna.jpg" class="fancybox" rel="gallery">
-		                            <img src="images/img-interna.jpg" alt="Nome do Produto" title="Nome do Produto">
-		                        </a>
-		                    </div>
+											<?php
+												if($quemSomos['tb_conteudo_video']!='' && $quemSomos['tb_conteudo_video']!=null) {
+													$video = explode('?v=', $quemSomos['tb_conteudo_video']);
+													?>
+													<div>
+														<div class="embed-responsive embed-responsive-16by9">
+															<iframe width="560" height="315" src="https://www.youtube.com/embed/<?=$video[1]?>" frameborder="0" allowfullscreen></iframe>
+														</div>
+													</div>
+												<?php } ?>
+												<?php
+						 								$iterator->loadBlock('galeria_bloco.html')
+						 									->addFilter('urlfyLink',array('#','galeria',1,'tb_galeria_foto_nome'),'tb_galeria_foto_nome')
+						 									->addFilter('urlfyImg',array('tb_galeria_foto_nome','galeria'),'tb_galeria_foto_nome')
+						 									->iterate($conexao::fetch('SELECT s.tb_conteudo_titulo,g.* FROM tb_conteudo s, tb_galeria_foto g WHERE g.tb_galeria_foto_id_conteudo=s.tb_conteudo_id and s.tb_conteudo_id='.$quemSomos['tb_conteudo_id']));
+				 								?>
 		                </div>
 					</div>
 				</div>

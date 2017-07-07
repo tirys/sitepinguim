@@ -34,7 +34,7 @@ return [
     'admin' => [
         'name' => 'admin',
         'url'  => 'http://localhost/lepingue/admin/',
-        'path' => 'lepingue/admin/'
+        'path' => '/lepingue/admin/'
     ],
     'database' => [
         'host' 	    => 'mysql.agenciaprospecta.com.br',
